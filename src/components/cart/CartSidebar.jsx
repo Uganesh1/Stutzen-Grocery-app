@@ -4,7 +4,7 @@ import { useCart } from '../../contexts/CartContext';
 import CheckoutPage from './CheckoutPage';
 
 const CartSidebar = () => {
-  const { cartItems, isCartOpen, setIsCartOpen, updateQuantity, getTotalPrice } = useCart();
+  const { cartItems, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, getTotalPrice } = useCart();
   const [showCheckout, setShowCheckout] = useState(false);
 
   if (!isCartOpen) return null;
@@ -12,6 +12,18 @@ const CartSidebar = () => {
   if (showCheckout) {
     return <CheckoutPage onBack={() => setShowCheckout(false)} />;
   }
+
+  const handleDecreaseQuantity = (item) => {
+    if (item.quantity === 1) {
+      removeFromCart(item.id);
+    } else {
+      updateQuantity(item.id, -1);
+    }
+  };
+
+  const handleIncreaseQuantity = (item) => {
+    updateQuantity(item.id, 1);
+  };
 
   return (
     <>
@@ -23,7 +35,7 @@ const CartSidebar = () => {
       
       {/* Cart Sidebar */}
       <div className="fixed right-0 top-0 h-full w-96 bg-white z-50 shadow-2xl flex flex-col">
-        {/* Header */}
+
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ShoppingCart className="text-teal-500" size={24} />
@@ -54,14 +66,14 @@ const CartSidebar = () => {
                   {/* Quantity Controls */}
                   <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200">
                     <button
-                      onClick={() => updateQuantity(item.id, -1)}
+                      onClick={() => handleDecreaseQuantity(item)}
                       className="p-2 hover:bg-gray-100 rounded-l-lg transition-colors"
                     >
                       <Minus size={16} />
                     </button>
                     <span className="font-medium px-3 min-w-[2rem] text-center">{item.quantity}</span>
                     <button
-                      onClick={() => updateQuantity(item.id, 1)}
+                      onClick={() => handleIncreaseQuantity(item)}
                       className="p-2 hover:bg-gray-100 rounded-r-lg transition-colors"
                     >
                       <Plus size={16} />
@@ -89,7 +101,7 @@ const CartSidebar = () => {
 
                   {/* Remove Button */}
                   <button
-                    onClick={() => updateQuantity(item.id, -item.quantity)}
+                    onClick={() => removeFromCart(item.id)}
                     className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                   >
                     <X size={18} />

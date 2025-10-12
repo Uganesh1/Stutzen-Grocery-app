@@ -6,6 +6,7 @@ import FeatureCards from './components/Features/FeatureCards';
 import Sidebar from './components/Sidebar/Sidebar';
 import ProductGrid from './components/products/ProductGrid';
 import CartSidebar from './components/cart/CartSidebar';
+import FloatingCart from './components/cart/FloatingCart';
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -27,6 +28,7 @@ const App = () => {
           </div>
         </div>
         
+        <FloatingCart />
         <CartSidebar />
       </div>
     </CartProvider>
