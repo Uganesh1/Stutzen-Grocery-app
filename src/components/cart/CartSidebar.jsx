@@ -113,17 +113,19 @@ const CartSidebar = () => {
         </div>
 
         {/* Checkout Button */}
-        {cartItems.length > 0 && (
-          <div className="p-6 border-t border-gray-200">
-            <button
-              onClick={() => setShowCheckout(true)}
-              className="w-full bg-teal-500 text-white py-4 rounded-lg hover:bg-teal-600 flex items-center justify-between px-6 font-semibold text-lg transition-colors"
-            >
-              <span>Checkout</span>
-              <span>${getTotalPrice()}</span>
-            </button>
-          </div>
-        )}
+{cartItems.length > 0 && (
+  <div className="p-6 border-t border-gray-200">
+    <button
+      onClick={() => setShowCheckout(true)}
+      className="w-full bg-teal-500 text-white py-4 rounded-lg hover:bg-teal-600 flex items-center justify-between px-6 font-semibold text-lg transition-colors overflow-hidden"
+    >
+      <span>Checkout</span>
+      <span className="bg-white text-teal-500 rounded-lg px-3 py-3 -my-2 -mr-4 font-bold h-full flex items-center">
+        ${getTotalPrice()}
+      </span>
+    </button>
+  </div>
+)}
       </div>
     </>
   );
