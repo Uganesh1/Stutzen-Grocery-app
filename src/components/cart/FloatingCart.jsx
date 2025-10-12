@@ -19,7 +19,7 @@ const FloatingCart = () => {
             {/* Header */}
             <div className="p-3 md:p-4 border-b border-gray-200 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <ShoppingCart className="text-teal-500" size={18} className="md:size-[20px]" />
+                <ShoppingCart className="text-teal-500 md:size-[20px]" size={18} />
                 <h3 className="font-bold text-gray-800 text-sm md:text-base">
                   {totalItems} Item{totalItems !== 1 ? 's' : ''}
                 </h3>
