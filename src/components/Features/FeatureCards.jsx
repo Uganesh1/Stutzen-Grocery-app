@@ -29,7 +29,7 @@ const FeatureCards = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
+    <div className="max-w-7xl mx-auto px-4 py-6 md:py-8 ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {features.map((feature, idx) => (
           <div key={idx} className={`${feature.bg} rounded-xl p-6 md:p-8 text-white relative overflow-hidden`}>

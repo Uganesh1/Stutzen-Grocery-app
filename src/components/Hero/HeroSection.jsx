@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { mockApi } from '../../services/mockApi';
+import bannerImage from '../../assets/banner.png';
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,7 +29,13 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-8 md:py-16">
+    <div className="bg-gradient-to-b from-gray-50 to-white py-8 md:py-16" 
+     style={{
+    backgroundImage: `url(${bannerImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+    }}>
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
           Groceries Delivered in 90 Minute
