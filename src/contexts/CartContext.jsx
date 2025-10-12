@@ -33,10 +33,14 @@ export const CartProvider = ({ children }) => {
       return prev.map(item => {
         if (item.id === productId) {
           const newQuantity = item.quantity + delta;
-          return newQuantity > 0 ? { ...item, quantity: newQuantity } : item;
+         
+          if (newQuantity <= 0) {
+            return null; 
+          }
+          return { ...item, quantity: newQuantity };
         }
         return item;
-      }).filter(item => item.quantity > 0);
+      }).filter(item => item !== null); 
     });
   };
 
