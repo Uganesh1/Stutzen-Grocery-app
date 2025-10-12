@@ -49,7 +49,7 @@ const Header = () => {
             <Search size={20} className="text-gray-500 cursor-pointer hidden sm:block" />
             
             <div className="hidden sm:flex items-center gap-2">
-              <button className="px-3 py-2 text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50 text-sm">
+              <button className="px-3 py-2 text-teal-600 bg-teal-500 border border-teal-600 text-white rounded-lg hover:bg-teal-600 text-sm">
                 Join
               </button>
               <button className="px-3 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 text-sm hidden lg:block">
@@ -81,7 +81,7 @@ const Header = () => {
               <a href="#" className="text-gray-700 hover:text-teal-500 py-2">Pages</a>
               
               <div className="flex gap-2 mt-2">
-                <button className="flex-1 px-3 py-2 text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50 text-sm">
+                <button className="flex-1 px-3 py-2 text-teal-600 bg-teal-500 text-white rounded-lg hover:bg-teal-600 text-sm text-sm">
                   Join
                 </button>
                 <button className="flex-1 px-3 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 text-sm">
